@@ -13,8 +13,8 @@ const routes: Routes =[
     { path: '', redirectTo: 'index', pathMatch: 'full' },
     { path: 'index',                component: ComponentsComponent },
     { path: 'nucleoicons',          component: NucleoiconsComponent },
-    { path: 'examples/landing',     component: LandingComponent },
-    { path: 'examples/login',       component: LoginComponent },
+    { path: 'landing/:id',     component: LandingComponent },
+    { path: 'login',       component: LoginComponent },
     { path: 'examples/profile',     component: ProfileComponent }
 ];
 

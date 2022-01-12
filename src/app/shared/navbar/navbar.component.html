@@ -9,7 +9,7 @@
           </a>
            <div ngbDropdownMenu>
              <a class="dropdown-header">Dropdown header</a>
-             <a class="dropdown-item" href="#">Action</a>
+             <a routerLink="/login" class="dropdown-item" href="#">Login</a>
              <a class="dropdown-item" href="#">Another action</a>
              <a class="dropdown-item" href="#">Something else here</a>
              <div class="dropdown-divider"></div>
@@ -21,7 +21,7 @@
       </div>
         <div class="navbar-translate">
             <a class="navbar-brand" [routerLink]="['/index']" placement="bottom" ngbTooltip="Designed by Invision. Coded by Creative Tim">
-                Now Ui Kit
+                Xplore the World
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation" (click)="sidebarToggle()">
                 <span class="navbar-toggler-bar bar1"></span>
@@ -34,19 +34,18 @@
               <li class="nav-item">
                   <a class="nav-link" href="https://www.creative-tim.com/product/now-ui-kit-angular" target="_blank">
                       <i class="now-ui-icons arrows-1_cloud-download-93"></i>
-                      <p>Download</p>
+                      <p>Xplore</p>
                   </a>
               </li>
                 <li class="nav-item">
                     <a class="nav-link" href="https://creativetimofficial.github.io/now-ui-kit-angular/documentation/tutorial" target="_blank">
                       <i class="now-ui-icons files_paper"></i>
-                      <p>Documentation</p>
+                      <p>Our mission</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link btn btn-neutral" href="https://www.creative-tim.com/product/now-ui-kit-pro-angular" target="_blank">
-                        <i class="now-ui-icons arrows-1_share-66"></i>
-                        <p>Upgrade to PRO</p>
+                    <a routerLink="/login" class="nav-link btn btn-neutral" href="https://www.creative-tim.com/product/now-ui-kit-pro-angular" target="_blank">
+                        <p>Login</p>
                     </a>
                 </li>
                 <li class="nav-item">
