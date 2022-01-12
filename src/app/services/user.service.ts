@@ -7,26 +7,13 @@ import { of } from 'rxjs/internal/observable/of';
   providedIn: 'root'
 })
 export class UserService {
-  users = [
-    {
-      name : "ali", 
-      password : "12345",
-      email: "ali@gmail.com",
-    },
-    {
-      name : "sarah", 
-      password : "12345",
-      email: "sarah@gmail.com",
-    },
-    {
-      name : "aymane", 
-      password : "12345",
-      email: "aymane@gmail.com",
-    }
-    
-  ]
+  user1: User=new User(Math.round(Math.random() *10000), "ali","12345","ali@gmail.com");
+  user2: User=new User(Math.round(Math.random() *10000), "sarah","12345","sarah@gmail.com");
+  user3: User=new User(Math.round(Math.random() *10000), "aymane","12345","aymane@gmail.com");
+
+  users = [this.user1,this.user2,this.user3]
   constructor() { }
-  getAssignments(): Observable<User[]> {
+  getAssignments(): Observable<User[]>{
     return of(this.users)
   }
 }
