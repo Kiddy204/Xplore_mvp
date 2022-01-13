@@ -9,12 +9,14 @@ import { ExamplesModule } from './examples/examples.module';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
+import { TriplistComponent } from './triplist/triplist.component';
 
 
 @NgModule({
     declarations: [
         AppComponent,
-        NavbarComponent
+        NavbarComponent,
+        TriplistComponent
     ],
     imports: [
         BrowserAnimationsModule,
