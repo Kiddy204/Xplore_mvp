@@ -1,6 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'app/models/user.model';
+import { UserService } from 'app/services/user.service';
+
 
 @Component({
   selector: 'app-login',
@@ -16,8 +18,11 @@ export class LoginComponent implements OnInit {
     username: string = ""
     password!: string 
     email!: string
-
-    constructor(private router:Router) { }
+    loginError : string;
+    currentUser : User;
+    constructor(private router:Router, private userService: UserService) {
+  
+     }
 
     ngOnInit() {
         var body = document.getElementsByTagName('body')[0];
@@ -34,22 +39,55 @@ export class LoginComponent implements OnInit {
         navbar.classList.remove('navbar-transparent');
     }
     onSubmit(){
-        if(this.username && this.password){
+      console.log(" is not logging in ")
+        if(this.email && this.password){
           console.log( "is logging In !");
     
-          let user =new User();
-          user.id =  Math.round(Math.random()*100000) ;
-          user.username = this.username;
-          user.password = this.password;
-          user.email = this.email;
-          this.newUser.emit(user);
-          this.router.navigate(["/landing/{{user.id}}"]);
+          // let newUser =new User();
+          // newUser.id = Math.round(Math.random() *10000);
+          // newUser.username = this.username;
+          // newUser.password = this.password;
+          // newUser.email = this.username;
+        let users=   this.userService.getAllUsers();
+          for(let user of users) {
+            if(user.email==this.email && user.password==this.password)
+            {
+              console.log(`Welcome to the app ${this.username}`);
+              this.loginError =null;
+              this.currentUser = user;
+              this.userService.setCurrentUser(user);
+              this.newUser.emit(user);
+              this.router.navigate(["/landing/{{newUser.id}}"]);
+            
+              break;
+            }
+            else {
+              console.log("Your email or password are not correct!");
+              this.loginError ="Email or password is incorrect";
+                   this.router.navigate(["/login"]);
+            }
+            
+          }
+          
+          // this.newUser.emit(user);
+        // this.userService.addUser(user);
+        console.log(this.userService.getAllUsers());
+          // this.router.navigate(["/landing/{{user.id}}"]);
 
         }
         else{
             console.log(" is not logging in ")
         }
      
+      }
+      // loginUser(event){
+      //   event.preventDefault();
+      //   console.log(event);
+      // }
+
+
+      getEmitter(){
+        return this.newUser;
       }
 
 }
