@@ -1,13 +1,13 @@
 
 <div class="page-header" filter-color="orange">
-    <div class="page-header-image" style="background-image:url(assets/img/login.jpg)"></div>
+    <div class="page-header-image" style="background-image:url(assets/img/xplore.jpg)"></div>
     <div class="container">
         <div class="col-md-4 content-center">
             <div class="card card-login card-plain">
                 <form ngForm #loginForm class="form">
                     <div class="header header-primary text-center">
                         <div class="logo-container">
-                            <img src="assets/img/now-logo.png" alt="">
+                            <img  src="assets/img/xplore-logo.png" alt="">
                         </div>
                     </div>
                     <div class="content">
@@ -15,7 +15,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">  <i class="now-ui-icons users_circle-08"></i></span>
                         </div>
-                          <input type="text" class="form-control" placeholder="Userame..." (focus)="focus=true" (blur)="focus=false"  [(ngModel)]="username" name = "username">
+                          <input type="text" class="form-control" placeholder="Email" (focus)="focus=true" (blur)="focus=false"  [(ngModel)]="email" name = "email">
                       </div>
                       <div class="input-group form-group-no-border input-lg" [ngClass]="{'input-group-focus':focus1===true}">
                         <div class="input-group-prepend">
@@ -29,7 +29,7 @@
                         <button type="button" class="btn btn-primary btn-round" (click)="onSubmit(); "> Sign In</button>
 
                     </div>
-                    
+                    <p *ngIf="loginError && loginError.length >0" style="color:red; font-size: 15px; font-weight: bold;"><i fa [name]="'exclamation-circle'"></i>{{loginError}}</p>
                     <div class="pull-right">
                         <h6>
                             <a href="#pablo" class="link">Need Help?</a>
@@ -43,7 +43,7 @@
         <script>
            
         </script>
-        <div class="container">
+        <!-- <div class="container">
             <nav>
                 <ul>
                     <li>
@@ -67,13 +67,13 @@
                         </a>
                     </li>
                 </ul>
-            </nav>
+            </nav> 
             <div class="copyright">
                 &copy;
               {{data | date: 'yyyy'}}, Designed by
                 <a href="https://www.invisionapp.com" target="_blank">Invision</a>. Coded by
                 <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
             </div>
-        </div>
+        </div>-->
     </footer>
 </div>
